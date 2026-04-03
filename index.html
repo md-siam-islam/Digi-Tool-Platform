@@ -20,152 +20,218 @@
     <title>Digi Tool Platform</title>
 </head>
 
-<body class="bg-gray-50 p-10">
+<body>
 
-    <!-- tab section -->
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50 rounded-full shadow-sm container mx-auto my-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
 
-<!-- Tab Buttons -->
-<div class="flex items-center justify-center mt-2 mb-10">
-  <div class="bg-white rounded-full p-1 inline-flex gap-1 border border-gray-100 shadow-sm">
-    
-    <!-- Products Button -->
-    <button 
-      id="btn-products"
-      onclick="showTab('products')"
-      class="flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 bg-purple-600 text-white">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="2" y="3" width="7" height="7"/><rect x="15" y="3" width="7" height="7"/>
-        <rect x="15" y="15" width="7" height="7"/><rect x="2" y="15" width="7" height="7"/>
-      </svg>
-      Products
-    </button>
-
-    <!-- Cart Button -->
-    <button 
-      id="btn-cart"
-      onclick="showTab('cart')"
-      class="flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 text-gray-400">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
-        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-      </svg>
-      Cart
-      <span id="cart-item-count" class="bg-purple-600 text-white text-xs font-medium px-2 py-0.5 rounded-full min-w-[18px] text-center">0</span>
-    </button>
-
-  </div>
-</div>
-
-    <!-- card container start -->
-    <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <!-- Cards will be injected here -->
-    </div>
-    <!-- card container end -->
-
-    <!-- cart section start -->
-    <section id="cart-section" class="hidden">
-        <!-- min-h-screen remove kore py-8 ba py-10 add kora hoyeche jate halka gap thake kintu bishal faka na lage -->
-        <div class="bg-gray-50 flex items-start justify-center py-10 px-4">
-
-            <!-- w-full max-w-2xl thakbe kintu margin-top auto dowa jete pare -->
-            <div class="bg-white rounded-2xl shadow-sm border w-full max-w-2xl overflow-hidden">
-
-                <!-- Header -->
-                <div class="px-6 py-5 border-b border-gray-100 flex justify-between items-center">
-                    <h2 class="text-base font-semibold text-gray-800">Your Cart</h2>
-                    <!-- Choto ekta badge thakte pare items count korar jonno -->
-                    <span
-                        class="bg-purple-100 text-purple-600 text-xs font-bold px-2.5 py-0.5 rounded-full">Items</span>
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-black tracking-tight text-purple-600">
+                        Digi<span class="text-gray-800">Tool</span>
+                    </a>
                 </div>
 
-                <!-- Cart Items -->
-                <div id="cart-items" class="px-6 divide-y divide-gray-100 max-h-[400px] overflow-y-auto">
-                    <!-- JS dynamically items bosabe -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#"
+                        class="text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors">Home</a>
+                    <a href="#"
+                        class="text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors">About</a>
+                    <a href="#"
+                        class="text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors">Product</a>
+                    <a href="#"
+                        class="text-sm font-medium text-gray-600 hover:text-purple-600 transition-colors">Contact</a>
                 </div>
 
-                <!-- Empty Message -->
-                <p id="empty-msg" class="hidden text-center text-sm text-gray-400 py-10">
-                    Your cart is empty.
+                <div class="flex items-center gap-4">
+                    <div class="bg-purple-50 px-4 py-1.5 rounded-full border border-purple-100 flex items-center gap-2">
+                        <span class="text-xs font-bold text-purple-400 tracking-wider">Balance</span>
+                        <span id="mainBalance" class="text-lg font-bold text-purple-700">$0</span>
+                    </div>
+
+                    <button id="addMoneyBtn"
+                        class="bg-[#9810FA] hover:bg-gray-800 text-white text-sm font-semibold py-2 px-5 rounded-lg transition-all active:scale-95 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                        </svg>
+                        Add Money
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto">
+
+        <!-- Tab Buttons -->
+        <div class="flex items-center justify-center mb-10 mt-10">
+            <div class="bg-white rounded-full p-1 inline-flex gap-1 border border-gray-100 shadow-sm">
+
+                <!-- Products Button -->
+                <button id="btn-products" onclick="showTab('products')"
+                    class="flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 bg-purple-600 text-white">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="3" width="7" height="7" />
+                        <rect x="15" y="3" width="7" height="7" />
+                        <rect x="15" y="15" width="7" height="7" />
+                        <rect x="2" y="15" width="7" height="7" />
+                    </svg>
+                    Products
+                </button>
+
+                <!-- Cart Button -->
+                <button id="btn-cart" onclick="showTab('cart')"
+                    class="flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 text-gray-400">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1" />
+                        <circle cx="20" cy="21" r="1" />
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                    </svg>
+                    Cart
+                    <span id="cart-item-count"
+                        class="bg-purple-600 text-white text-xs font-medium px-2 py-0.5 rounded-full min-w-[18px] text-center">0</span>
+                </button>
+
+            </div>
+        </div>
+        <!-- Tab Buttons -->
+
+        <!-- card container start -->
+        <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Cards will be injected here -->
+        </div>
+        <!-- card container end -->
+
+        <!-- cart section start -->
+        <section id="cart-section" class="hidden">
+            <!-- min-h-screen remove kore py-8 ba py-10 add kora hoyeche jate halka gap thake kintu bishal faka na lage -->
+            <div class="flex items-start justify-center py-10 px-4">
+
+                <!-- w-full max-w-2xl thakbe kintu margin-top auto dowa jete pare -->
+                <div class="bg-white rounded-2xl shadow-sm border w-full max-w-2xl overflow-hidden">
+
+                    <!-- Header -->
+                    <div class="px-6 py-5 border-b border-gray-100 flex justify-between items-center">
+                        <h2 class="text-base font-semibold text-gray-800">Your Cart</h2>
+                        <!-- Choto ekta badge thakte pare items count korar jonno -->
+                        <span
+                            class="bg-purple-100 text-purple-600 text-xs font-bold px-2.5 py-0.5 rounded-full">Items</span>
+                    </div>
+
+                    <!-- Cart Items -->
+                    <div id="cart-items" class="px-6 divide-y divide-gray-100 max-h-[400px] overflow-y-auto">
+                        <!-- JS dynamically items bosabe -->
+                    </div>
+
+                    <!-- Empty Message -->
+                    <p id="empty-msg" class="hidden text-center text-sm text-gray-400 py-10">
+                        Your cart is empty.
+                    </p>
+
+                    <!-- Total -->
+                    <div class="px-6 py-4 border-t border-gray-100 flex items-center justify-between bg-gray-50/50">
+                        <span class="text-sm font-medium text-gray-500">Total Amount</span>
+                        <span id="cart-total" class="text-2xl font-black text-gray-900">0</span>
+                    </div>
+
+                    <!-- Checkout Button -->
+                    <div class="px-6 pb-6 pt-2">
+                        <button onclick="checkout()"
+                            class="w-full bg-purple-600 hover:bg-purple-700 active:scale-[0.98] text-white font-semibold py-3.5 rounded-xl transition-all text-sm tracking-wide shadow-lg shadow-purple-200">
+                            Proceed To Checkout
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- cart section end -->
+
+
+
+
+        <!-- modal section start -->
+        <dialog id="my_modal_4" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box w-11/12 max-w-2xl border-t-4 border-purple-600 shadow-2xl">
+
+                <!-- Modal Header with Icon -->
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="bg-purple-100 p-3 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 id="modal-title" class="text-2xl font-extrabold tracking-tight">Confirm Purchase</h3>
+                        <p id="modal-description" class="text-sm text-gray-500 italic"></p>
+                    </div>
+                </div>
+
+                <hr class="opacity-10 mb-4" />
+
+                <!-- Product Details Section -->
+                <div class="bg-gray-50 p-6 rounded-2xl mb-6 text-center border border-gray-100">
+                    <p class="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-1">Total Amount</p>
+                    <p id="modal-price" class="text-4xl font-black text-purple-700"></p>
+                </div>
+
+                <p class="text-center text-gray-600 font-medium">
+                    Are you sure you want to add this premium item to your cart? 🛒
                 </p>
 
-                <!-- Total -->
-                <div class="px-6 py-4 border-t border-gray-100 flex items-center justify-between bg-gray-50/50">
-                    <span class="text-sm font-medium text-gray-500">Total Amount</span>
-                    <span id="cart-total" class="text-2xl font-black text-gray-900">0</span>
-                </div>
-
-                <!-- Checkout Button -->
-                <div class="px-6 pb-6 pt-2">
-                    <button onclick="checkout()"
-                        class="w-full bg-purple-600 hover:bg-purple-700 active:scale-[0.98] text-white font-semibold py-3.5 rounded-xl transition-all text-sm tracking-wide shadow-lg shadow-purple-200">
-                        Proceed To Checkout
-                    </button>
+                <!-- Action Buttons -->
+                <div class="modal-action flex justify-center gap-3">
+                    <form method="dialog" class="flex gap-2 w-full sm:w-auto">
+                        <button class="btn btn-ghost flex-1 sm:flex-none px-8">Cancel</button>
+                        <button id="addToCartBtn"
+                            class="btn btn-primary flex-1 sm:flex-none px-10 bg-gradient-to-r from-purple-600 to-indigo-600 border-none hover:scale-105 transition-transform">
+                            Confirm & Buy
+                        </button>
+                    </form>
                 </div>
 
             </div>
-        </div>
-    </section>
-    <!-- cart section end -->
 
+            <!-- Backdrop blur effect -->
+            <form method="dialog" class="modal-backdrop backdrop-blur-sm bg-black/20">
+                <button>close</button>
+            </form>
+        </dialog>
+        <!-- modal section end -->
 
+        <!-- add money modal -->
+        <dialog id="my_modal_3" class="modal">
+            <div class="modal-box">
 
-
-
-
-
-
-
-    <!-- modal section start -->
-    <dialog id="my_modal_4" class="modal modal-bottom sm:modal-middle">
-        <div class="modal-box w-11/12 max-w-2xl border-t-4 border-purple-600 shadow-2xl">
-
-            <!-- Modal Header with Icon -->
-            <div class="flex items-center gap-4 mb-4">
-                <div class="bg-purple-100 p-3 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                </div>
-                <div>
-                    <h3 id="modal-title" class="text-2xl font-extrabold tracking-tight">Confirm Purchase</h3>
-                    <p id="modal-description" class="text-sm text-gray-500 italic"></p>
-                </div>
-            </div>
-
-            <hr class="opacity-10 mb-4" />
-
-            <!-- Product Details Section -->
-            <div class="bg-gray-50 p-6 rounded-2xl mb-6 text-center border border-gray-100">
-                <p class="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-1">Total Amount</p>
-                <p id="modal-price" class="text-4xl font-black text-purple-700"></p>
-            </div>
-
-            <p class="text-center text-gray-600 font-medium">
-                Are you sure you want to add this premium item to your cart? 🛒
-            </p>
-
-            <!-- Action Buttons -->
-            <div class="modal-action flex justify-center gap-3">
-                <form method="dialog" class="flex gap-2 w-full sm:w-auto">
-                    <button class="btn btn-ghost flex-1 sm:flex-none px-8">Cancel</button>
-                    <button id="addToCartBtn"
-                        class="btn btn-primary flex-1 sm:flex-none px-10 bg-gradient-to-r from-purple-600 to-indigo-600 border-none hover:scale-105 transition-transform">
-                        Confirm & Buy
-                    </button>
+                <!-- Close Button -->
+                <form method="dialog">
+                    <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 </form>
+
+                <h3 class="text-lg font-bold mb-4">Add Money 💸</h3>
+
+                <!-- Input Field -->
+                <input id="amount-input" type="number" placeholder="Enter amount"
+                    class="input input-bordered w-full mb-4" />
+
+                <!-- Add Button -->
+                <button type="button" onclick="handleAddMoney()" class="btn btn-primary w-full">
+                    Add Money
+                </button>
+
             </div>
+        </dialog>
+        <!-- add money modal -->
 
-        </div>
 
-        <!-- Backdrop blur effect -->
-        <form method="dialog" class="modal-backdrop backdrop-blur-sm bg-black/20">
-            <button>close</button>
-        </form>
-    </dialog>
-    <!-- modal section end -->
-
+    </main>
 </body>
 <script src="script.js"></script>
 

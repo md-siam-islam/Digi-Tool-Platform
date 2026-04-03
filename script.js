@@ -10,6 +10,11 @@ const badgeColors = {
 let allProduct = []
 let cart = JSON.parse(localStorage.getItem("cart")) || []
 let currentProduct = null;
+let balance = parseFloat(localStorage.getItem("balance")) || 0;
+
+window.onload = () => {
+    document.getElementById("mainBalance").innerText = `$${balance}`;
+}
 
 
 fetch("carddetails.json")
@@ -157,31 +162,71 @@ const removeItem = (id) => {
     renderCart();
 }
 
-// function checkout() {
-//   if (cart.length === 0) {
-//     alert("Cart is empty!");
-//     return;
-//   }
-//   const names = cart.map(p => p.title).join(", ");
-//   alert(`Order placed!\nItems: ${names}\nTotal: $${cart.reduce((s, p) => s + p.price, 0)}`);
-// }
+const AddMoneybutton = () => {
+    document.getElementById("addMoneyBtn").onclick = () => {
+        document.getElementById("my_modal_3").showModal()
+    }
+}
+
+const handleAddMoney = () => {
+
+    const ManiBalance = document.getElementById("mainBalance");
+    const input = document.getElementById("amount-input")
+    const money = parseFloat(input.value);
+
+    if (!money|| money <= 0) {
+        alert("Please enter a valid amount");
+        return;
+    }
+
+    if(money > 200){
+        alert("Maximum addable amount is $200");
+        return;
+    }
+
+    balance += money;
+    ManiBalance.innerText = `$${balance}`;
+      localStorage.setItem("balance", balance);
+    input.value = "";
+    document.getElementById("my_modal_3").close()
+}
+
+function checkout() {
+  if (cart.length === 0) {
+    alert("Cart is empty!");
+    return;
+  }
+  balance -= cart.reduce((s,p) => s + p.price, 0);
+  document.getElementById("mainBalance").innerText = `$${balance}`;
+  localStorage.setItem("balance", balance);
+  const names = cart.map(p => p.title).join(", ");
+  alert(`Order placed!\nItems: ${names}\nTotal: $${cart.reduce((s, p) => s + p.price, 0)}`);
+
+    cart = [];
+    localStorage.setItem("cart", JSON.stringify(cart))
+    const container = document.getElementById("cart-items");
+    container.innerHTML = "";
+    updateCartCount()
+    renderCart();
+}
 
 function showTab(tab) {
-  const btnProducts = document.getElementById("btn-products");
-  const btnCart = document.getElementById("btn-cart");
+    const btnProducts = document.getElementById("btn-products");
+    const btnCart = document.getElementById("btn-cart");
 
-  if (tab === "products") {
-    btnProducts.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 bg-purple-600 text-white";
-    btnCart.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 text-gray-400";
-    document.getElementById("card-container").classList.remove("hidden");
-    document.querySelector("section").classList.add("hidden");
-  } else {
-    btnCart.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 bg-purple-600 text-white";
-    btnProducts.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 text-gray-400";
-    document.getElementById("card-container").classList.add("hidden");
-    document.querySelector("section").classList.remove("hidden");
-  }
+    if (tab === "products") {
+        btnProducts.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 bg-purple-600 text-white";
+        btnCart.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 text-gray-400";
+        document.getElementById("card-container").classList.remove("hidden");
+        document.querySelector("section").classList.add("hidden");
+    } else {
+        btnCart.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 bg-purple-600 text-white";
+        btnProducts.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 text-gray-400";
+        document.getElementById("card-container").classList.add("hidden");
+        document.querySelector("section").classList.remove("hidden");
+    }
 }
 
 renderCart();
 updateCartCount()
+AddMoneybutton()
