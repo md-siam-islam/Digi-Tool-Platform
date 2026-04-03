@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "badge": "Best Seller",
+    "badgeColor": "orange",
+    "icon": "✍️",
+    "title": "AI Writing Pro",
+    "description": "Generate high-quality content, blogs, and marketing copy in seconds with advanced AI.",
+    "price": 29,
+    "pricingType": "Mo",
+    "features": ["Unlimited AI generations", "50+ writing templates", "Grammar checker"],
+    "cta": "Buy Now"
+  },
+  {
+    "id": 2,
+    "badge": "Popular",
+    "badgeColor": "purple",
+    "icon": "🎨",
+    "title": "Design Templates Pack",
+    "description": "2000+ premium templates for social media, presentations, and marketing materials.",
+    "price": 49,
+    "pricingType": "One-Time",
+    "features": ["2000+ templates", "Monthly updates", "Commercial license"],
+    "cta": "Buy Now"
+  },
+  {
+    "id": 3,
+    "badge": "New",
+    "badgeColor": "green",
+    "icon": "📷",
+    "title": "Premium Stock Assets",
+    "description": "Access millions of royalty-free photos, videos, and graphics for your projects.",
+    "price": 19,
+    "pricingType": "Mo",
+    "features": ["10M+ assets", "Commercial use", "No attribution"],
+    "cta": "Buy Now"
+  },
+  {
+    "id": 4,
+    "badge": "Popular",
+    "badgeColor": "purple",
+    "icon": "⚙️",
+    "title": "Automation Toolkit",
+    "description": "Automate repetitive tasks and streamline your workflow with powerful tools.",
+    "price": 79,
+    "pricingType": "Mo",
+    "features": ["50+ automations", "API access", "Custom workflows"],
+    "cta": "Buy Now"
+  },
+  {
+    "id": 5,
+    "badge": "New",
+    "badgeColor": "green",
+    "icon": "📄",
+    "title": "Resume Builder Pro",
+    "description": "Create professional resumes and cover letters that land interviews.",
+    "price": 15,
+    "pricingType": "One-Time",
+    "features": ["100+ templates", "ATS optimization", "Export to PDF"],
+    "cta": "Buy Now"
+  },
+  {
+    "id": 6,
+    "badge": "Best Seller",
+    "badgeColor": "orange",
+    "icon": "📱",
+    "title": "Social Media Content Kit",
+    "description": "Complete toolkit for creating engaging social media content across all platforms.",
+    "price": 39,
+    "pricingType": "Mo",
+    "features": ["5000+ assets", "Scheduler included", "Analytics dashboard"],
+    "cta": "Buy Now"
+  },
+  {
+    "id": 7,
+    "badge": "Hot",
+    "badgeColor": "red",
+    "icon": "🎬",
+    "title": "Video Editing Suite",
+    "description": "Professional video editing tools with effects, transitions, and export options.",
+    "price": 59,
+    "pricingType": "Mo",
+    "features": ["4K export", "500+ transitions", "Audio tools included"],
+    "cta": "Buy Now"
+  },
+  {
+    "id": 8,
+    "badge": "Popular",
+    "badgeColor": "purple",
+    "icon": "📊",
+    "title": "Analytics Pro Dashboard",
+    "description": "Track, analyze, and grow your business with real-time data insights and reports.",
+    "price": 45,
+    "pricingType": "Mo",
+    "features": ["Real-time data", "Custom reports", "Team collaboration"],
+    "cta": "Buy Now"
+  },
+  {
+    "id": 9,
+    "badge": "New",
+    "badgeColor": "green",
+    "icon": "🛡️",
+    "title": "SEO Booster Toolkit",
+    "description": "Rank higher on search engines with powerful SEO tools and keyword insights.",
+    "price": 35,
+    "pricingType": "Mo",
+    "features": ["Keyword research", "Backlink tracker", "Site audit tool"],
+    "cta": "Buy Now"
+  }
+]

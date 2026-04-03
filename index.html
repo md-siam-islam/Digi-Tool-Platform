@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- DaisyUI Part start -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <!-- DaisyUI Part end -->
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Font Awesome -->
+    <!-- tailwindcss -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- tailwindcss -->
+
+    <title>Digi Tool Platform</title>
+</head>
+
+<body class="bg-gray-50 p-10">
+
+    <!-- card container start -->
+    <div id="card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards will be injected here -->
+    </div>
+    <!-- card container end -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- modal section start -->
+    <dialog id="my_modal_4" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box w-11/12 max-w-2xl border-t-4 border-purple-600 shadow-2xl">
+
+            <!-- Modal Header with Icon -->
+            <div class="flex items-center gap-4 mb-4">
+                <div class="bg-purple-100 p-3 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                </div>
+                <div>
+                    <h3 id="modal-title" class="text-2xl font-extrabold tracking-tight">Confirm Purchase</h3>
+                    <p id="modal-description" class="text-sm text-gray-500 italic"></p>
+                </div>
+            </div>
+
+            <hr class="opacity-10 mb-4" />
+
+            <!-- Product Details Section -->
+            <div class="bg-gray-50 p-6 rounded-2xl mb-6 text-center border border-gray-100">
+                <p class="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-1">Total Amount</p>
+                <p id="modal-price" class="text-4xl font-black text-purple-700"></p>
+            </div>
+
+            <p class="text-center text-gray-600 font-medium">
+                Are you sure you want to add this premium item to your cart? 🛒
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="modal-action flex justify-center gap-3">
+                <form method="dialog" class="flex gap-2 w-full sm:w-auto">
+                    <button class="btn btn-ghost flex-1 sm:flex-none px-8">Cancel</button>
+                    <button
+                        class="btn btn-primary flex-1 sm:flex-none px-10 bg-gradient-to-r from-purple-600 to-indigo-600 border-none hover:scale-105 transition-transform">
+                        Confirm & Buy
+                    </button>
+                </form>
+            </div>
+
+        </div>
+
+        <!-- Backdrop blur effect -->
+        <form method="dialog" class="modal-backdrop backdrop-blur-sm bg-black/20">
+            <button>close</button>
+        </form>
+    </dialog>
+    <!-- modal section end -->
+
+</body>
+<script src="script.js"></script>
+
+</html>
