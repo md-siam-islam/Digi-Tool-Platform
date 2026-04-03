@@ -64,7 +64,77 @@
         </div>
     </nav>
 
-    <main class="container mx-auto">
+    <!-- banner section -->
+    <div class="container mx-auto">
+        <!-- banner section start -->
+
+        <section class="relative bg-white overflow-hidden my-10">
+            <div class="max-w-7xl mx-auto px-6 py-8 md:py-10 lg:py-10">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+
+                    <div class="space-y-4 order-2 md:order-1">
+
+                        <div
+                            class="inline-flex items-center gap-2 bg-purple-50 text-purple-600 px-4 py-1.5 rounded-full border border-purple-100">
+                            <span class="relative flex h-2.5 w-2.5">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-purple-600"></span>
+                            </span>
+                            <span class="text-xs font-bold tracking-wide uppercase">New: AI-Powered Tools
+                                Available</span>
+                        </div>
+
+                        <h1
+                            class="text-xl md:text-2xl lg:text-6xl font-black text-gray-900 leading-[1.1] tracking-tight">
+                            Supercharge Your <span class="text-gray-800">Digital Workflow</span>
+                        </h1>
+
+                        <div class="max-w-lg space-y-4">
+                            <p class="text-lg text-gray-500 leading-relaxed">
+                                Access premium AI tools, design assets, templates, and productivity software—all in one
+                                place. Start creating faster today.
+                            </p>
+                        </div>
+
+                        <div class="flex flex-wrap gap-4 pt-4">
+                            <button
+                                class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-5 rounded-full transition-all active:scale-95 shadow-xl shadow-purple-200">
+                                Explore Products
+                            </button>
+
+                            <button
+                                class="group flex items-center gap-3 bg-white border-2 border-purple-100 hover:border-purple-600 text-purple-600 font-bold py-4 px-5 rounded-full transition-all active:scale-95">
+                                <span
+                                    class="bg-purple-50 group-hover:bg-purple-600 p-1.5 rounded-full transition-colors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 group-hover:text-white"
+                                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                    </svg>
+                                </span>
+                                Watch Demo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="relative order-1 md:order-2">
+
+                        <div class="relative rounded-3xl overflow-hidden ">
+                            <img src="image/banner.png" alt="Digital Workflow Banner"
+                                class="w-full h-[500px] object-cover transform hover:scale-105 transition-transform duration-700">
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <!-- banner section end -->
+    </div>
+
+    <!-- producct and cart sections start -->
+    <div class="container mx-auto mb-20">
 
         <!-- Tab Buttons -->
         <div class="flex items-center justify-center mb-10 mt-10">
@@ -151,87 +221,129 @@
             </div>
         </section>
         <!-- cart section end -->
+    </div>
+    <!-- product and cart sections end -->
 
 
+    <!-- modal section start -->
+    <dialog id="my_modal_4" class="modal modal-bottom sm:modal-middle">
+        <div class="modal-box w-11/12 max-w-2xl border-t-4 border-purple-600 shadow-2xl">
 
-
-        <!-- modal section start -->
-        <dialog id="my_modal_4" class="modal modal-bottom sm:modal-middle">
-            <div class="modal-box w-11/12 max-w-2xl border-t-4 border-purple-600 shadow-2xl">
-
-                <!-- Modal Header with Icon -->
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="bg-purple-100 p-3 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                    </div>
-                    <div>
-                        <h3 id="modal-title" class="text-2xl font-extrabold tracking-tight">Confirm Purchase</h3>
-                        <p id="modal-description" class="text-sm text-gray-500 italic"></p>
-                    </div>
+            <!-- Modal Header with Icon -->
+            <div class="flex items-center gap-4 mb-4">
+                <div class="bg-purple-100 p-3 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-600" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
                 </div>
-
-                <hr class="opacity-10 mb-4" />
-
-                <!-- Product Details Section -->
-                <div class="bg-gray-50 p-6 rounded-2xl mb-6 text-center border border-gray-100">
-                    <p class="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-1">Total Amount</p>
-                    <p id="modal-price" class="text-4xl font-black text-purple-700"></p>
+                <div>
+                    <h3 id="modal-title" class="text-2xl font-extrabold tracking-tight">Confirm Purchase</h3>
+                    <p id="modal-description" class="text-sm text-gray-500 italic"></p>
                 </div>
-
-                <p class="text-center text-gray-600 font-medium">
-                    Are you sure you want to add this premium item to your cart? 🛒
-                </p>
-
-                <!-- Action Buttons -->
-                <div class="modal-action flex justify-center gap-3">
-                    <form method="dialog" class="flex gap-2 w-full sm:w-auto">
-                        <button class="btn btn-ghost flex-1 sm:flex-none px-8">Cancel</button>
-                        <button id="addToCartBtn"
-                            class="btn btn-primary flex-1 sm:flex-none px-10 bg-gradient-to-r from-purple-600 to-indigo-600 border-none hover:scale-105 transition-transform">
-                            Confirm & Buy
-                        </button>
-                    </form>
-                </div>
-
             </div>
 
-            <!-- Backdrop blur effect -->
-            <form method="dialog" class="modal-backdrop backdrop-blur-sm bg-black/20">
-                <button>close</button>
-            </form>
-        </dialog>
-        <!-- modal section end -->
+            <hr class="opacity-10 mb-4" />
 
-        <!-- add money modal -->
-        <dialog id="my_modal_3" class="modal">
-            <div class="modal-box">
+            <!-- Product Details Section -->
+            <div class="bg-gray-50 p-6 rounded-2xl mb-6 text-center border border-gray-100">
+                <p class="text-sm uppercase tracking-widest text-gray-400 font-semibold mb-1">Total Amount</p>
+                <p id="modal-price" class="text-4xl font-black text-purple-700"></p>
+            </div>
 
-                <!-- Close Button -->
-                <form method="dialog">
-                    <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            <p class="text-center text-gray-600 font-medium">
+                Are you sure you want to add this premium item to your cart? 🛒
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="modal-action flex justify-center gap-3">
+                <form method="dialog" class="flex gap-2 w-full sm:w-auto">
+                    <button class="btn btn-ghost flex-1 sm:flex-none px-8">Cancel</button>
+                    <button id="addToCartBtn"
+                        class="btn btn-primary flex-1 sm:flex-none px-10 bg-gradient-to-r from-purple-600 to-indigo-600 border-none hover:scale-105 transition-transform">
+                        Confirm & Buy
+                    </button>
                 </form>
-
-                <h3 class="text-lg font-bold mb-4">Add Money 💸</h3>
-
-                <!-- Input Field -->
-                <input id="amount-input" type="number" placeholder="Enter amount"
-                    class="input input-bordered w-full mb-4" />
-
-                <!-- Add Button -->
-                <button type="button" onclick="handleAddMoney()" class="btn btn-primary w-full">
-                    Add Money
-                </button>
-
             </div>
-        </dialog>
-        <!-- add money modal -->
 
+        </div>
 
-    </main>
+        <!-- Backdrop blur effect -->
+        <form method="dialog" class="modal-backdrop backdrop-blur-sm bg-black/20">
+            <button>close</button>
+        </form>
+    </dialog>
+    <!-- modal section end -->
+
+    <!-- add money modal -->
+    <dialog id="my_modal_3" class="modal">
+        <div class="modal-box">
+
+            <!-- Close Button -->
+            <form method="dialog">
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+
+            <h3 class="text-lg font-bold mb-4">Add Money 💸</h3>
+
+            <!-- Input Field -->
+            <input id="amount-input" type="number" placeholder="Enter amount"
+                class="input input-bordered w-full mb-4" />
+
+            <!-- Add Button -->
+            <button type="button" onclick="handleAddMoney()" class="btn btn-primary w-full">
+                Add Money
+            </button>
+
+        </div>
+    </dialog>
+    <!-- add money modal -->
+
+    <footer class="footer sm:footer-horizontal bg-neutral text-neutral-content grid-rows-2 p-10">
+        <nav>
+            <h6 class="footer-title">Services</h6>
+            <a class="link link-hover">Branding</a>
+            <a class="link link-hover">Design</a>
+            <a class="link link-hover">Marketing</a>
+            <a class="link link-hover">Advertisement</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Company</h6>
+            <a class="link link-hover">About us</a>
+            <a class="link link-hover">Contact</a>
+            <a class="link link-hover">Jobs</a>
+            <a class="link link-hover">Press kit</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Legal</h6>
+            <a class="link link-hover">Terms of use</a>
+            <a class="link link-hover">Privacy policy</a>
+            <a class="link link-hover">Cookie policy</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Social</h6>
+            <a class="link link-hover">Twitter</a>
+            <a class="link link-hover">Instagram</a>
+            <a class="link link-hover">Facebook</a>
+            <a class="link link-hover">GitHub</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Explore</h6>
+            <a class="link link-hover">Features</a>
+            <a class="link link-hover">Enterprise</a>
+            <a class="link link-hover">Security</a>
+            <a class="link link-hover">Pricing</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Apps</h6>
+            <a class="link link-hover">Mac</a>
+            <a class="link link-hover">Windows</a>
+            <a class="link link-hover">iPhone</a>
+            <a class="link link-hover">Android</a>
+        </nav>
+    </footer>
+
 </body>
 <script src="script.js"></script>
 

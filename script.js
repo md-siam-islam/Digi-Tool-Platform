@@ -213,17 +213,25 @@ function checkout() {
 function showTab(tab) {
     const btnProducts = document.getElementById("btn-products");
     const btnCart = document.getElementById("btn-cart");
+    const cardContainer = document.getElementById("card-container");
+    const cartSection = document.getElementById("cart-section");
 
     if (tab === "products") {
+        // Button style
         btnProducts.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 bg-purple-600 text-white";
         btnCart.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 text-gray-400";
-        document.getElementById("card-container").classList.remove("hidden");
-        document.querySelector("section").classList.add("hidden");
-    } else {
+
+        // Show products, hide cart
+        cardContainer.classList.remove("hidden");
+        cartSection.classList.add("hidden");
+    } else if (tab === "cart") {
+        // Button style
         btnCart.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 bg-purple-600 text-white";
         btnProducts.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 text-gray-400";
-        document.getElementById("card-container").classList.add("hidden");
-        document.querySelector("section").classList.remove("hidden");
+
+        // Show cart, hide products
+        cardContainer.classList.add("hidden");
+        cartSection.classList.remove("hidden");
     }
 }
 
