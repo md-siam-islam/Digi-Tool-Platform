@@ -84,19 +84,26 @@ const buttonClickHandler = (button) => {
     }
 }
 
+const updateCartCount = () => {
+    const cartItemCountEl = document.getElementById("cart-item-count");
+    cartItemCountEl.textContent = cart.length;
+}
+
 const AddToCart = (product) => {
+
 
     if (cart.find(p => p.id === product.id)) {
         alert("Product already in cart")
     } else {
         cart.push(product)
-        console.log("Product added to cart", product);
     }
 
     localStorage.setItem("cart", JSON.stringify(cart))
+    updateCartCount()
     renderCart()
-    // console.log("Buy Now Product",product);
 }
+
+
 
 const renderCart = () => {
     const container = document.getElementById("cart-items");
@@ -114,7 +121,7 @@ const renderCart = () => {
 
     let total = 0;
 
-    cart.forEach(item  => {
+    cart.forEach(item => {
         total += item.price
 
         const row = document.createElement("div");
@@ -146,6 +153,7 @@ const renderCart = () => {
 const removeItem = (id) => {
     cart = cart.filter(p => p.id !== id);
     localStorage.setItem("cart", JSON.stringify(cart))
+    updateCartCount()
     renderCart();
 }
 
@@ -158,4 +166,22 @@ const removeItem = (id) => {
 //   alert(`Order placed!\nItems: ${names}\nTotal: $${cart.reduce((s, p) => s + p.price, 0)}`);
 // }
 
-// renderProducts()
+function showTab(tab) {
+  const btnProducts = document.getElementById("btn-products");
+  const btnCart = document.getElementById("btn-cart");
+
+  if (tab === "products") {
+    btnProducts.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 bg-purple-600 text-white";
+    btnCart.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 text-gray-400";
+    document.getElementById("card-container").classList.remove("hidden");
+    document.querySelector("section").classList.add("hidden");
+  } else {
+    btnCart.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 bg-purple-600 text-white";
+    btnProducts.className = "flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all duration-200 text-gray-400";
+    document.getElementById("card-container").classList.add("hidden");
+    document.querySelector("section").classList.remove("hidden");
+  }
+}
+
+renderCart();
+updateCartCount()
