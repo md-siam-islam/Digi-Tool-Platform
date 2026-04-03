@@ -8,6 +8,7 @@ const badgeColors = {
 };
 
 let allProduct = []
+let cart = JSON.parse(localStorage.getItem("cart")) || []
 let currentProduct = null;
 
 
@@ -78,13 +79,83 @@ const buttonClickHandler = (button) => {
     document.getElementById("my_modal_4").showModal()
 
     document.getElementById("addToCartBtn").onclick = () => {
-            AddToCart(currentProduct)
-            document.getElementById("my_modal_4").close()
+        AddToCart(currentProduct)
+        document.getElementById("my_modal_4").close()
     }
 }
 
 const AddToCart = (product) => {
-    console.log("Buy Now Product",product);
-} 
+
+    if (cart.find(p => p.id === product.id)) {
+        alert("Product already in cart")
+    } else {
+        cart.push(product)
+        console.log("Product added to cart", product);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart))
+    renderCart()
+    // console.log("Buy Now Product",product);
+}
+
+const renderCart = () => {
+    const container = document.getElementById("cart-items");
+    const totalEl = document.getElementById("cart-total");
+    const emptyMsg = document.getElementById("empty-msg");
+
+    container.innerHTML = ""
+
+    if (cart.length === 0) {
+        emptyMsg.classList.remove("hidden")
+        totalEl.innerText = "$0"
+        return;
+    }
+    emptyMsg.classList.add("hidden")
+
+    let total = 0;
+
+    cart.forEach(item  => {
+        total += item.price
+
+        const row = document.createElement("div");
+        row.className = "flex items-center gap-4 py-4";
+
+        row.innerHTML = `
+      <div class="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center text-lg flex-shrink-0">
+        ${item.icon}
+      </div>
+
+      <div class="flex-1">
+        <p class="text-sm font-semibold text-gray-800">${item.title}</p>
+        <p class="text-sm text-gray-400">$${item.price}</p>
+      </div>
+
+      <button 
+        onclick="removeItem(${item.id})"
+        class="text-xs text-red-500 hover:text-red-700 font-medium transition">
+        Remove
+      </button>
+      `;
+        container.appendChild(row)
+    })
+
+    totalEl.textContent = `$${total}`;
+
+}
+
+const removeItem = (id) => {
+    cart = cart.filter(p => p.id !== id);
+    localStorage.setItem("cart", JSON.stringify(cart))
+    renderCart();
+}
+
+// function checkout() {
+//   if (cart.length === 0) {
+//     alert("Cart is empty!");
+//     return;
+//   }
+//   const names = cart.map(p => p.title).join(", ");
+//   alert(`Order placed!\nItems: ${names}\nTotal: $${cart.reduce((s, p) => s + p.price, 0)}`);
+// }
 
 // renderProducts()
