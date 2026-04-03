@@ -8,6 +8,7 @@ const badgeColors = {
 };
 
 let allProduct = []
+let currentProduct = null;
 
 
 fetch("carddetails.json")
@@ -19,7 +20,7 @@ fetch("carddetails.json")
 
 const renderProducts = (products) => {
     const container = document.getElementById("card-container");
-    
+
     products.forEach(product => {
         const badgeClass = badgeColors[product.badgeColor] || "bg-gray-100 text-gray-600";
 
@@ -69,12 +70,21 @@ const renderProducts = (products) => {
 const buttonClickHandler = (button) => {
 
     const productId = button.getAttribute("data-id");
-    const ClickedProduct = allProduct.find(p =>p.id == productId)
+    currentProduct = allProduct.find(p => p.id == productId)
     // alert(`You clicked on ${ClickedProduct.title} for product ID: ${button.getAttribute("data-id")}`);
-    document.getElementById("modal-title").innerText =ClickedProduct.title;
-    document.getElementById("modal-description").innerText = ClickedProduct.description;
-    document.getElementById("modal-price").innerText = `$${ClickedProduct.price} / ${ClickedProduct.pricingType}`;
+    document.getElementById("modal-title").innerText = currentProduct.title;
+    document.getElementById("modal-description").innerText = currentProduct.description;
+    document.getElementById("modal-price").innerText = `$${currentProduct.price} / ${currentProduct.pricingType}`;
     document.getElementById("my_modal_4").showModal()
+
+    document.getElementById("addToCartBtn").onclick = () => {
+            AddToCart(currentProduct)
+            document.getElementById("my_modal_4").close()
+    }
 }
+
+const AddToCart = (product) => {
+    console.log("Buy Now Product",product);
+} 
 
 // renderProducts()
